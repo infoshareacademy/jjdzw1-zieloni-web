@@ -1,14 +1,26 @@
 <#ftl encoding='UTF-8'>
 
 <main>
-<h3>Wybierz swoje auto : </h3>
+<h3 class="title-bar">Wybierz swoje auto : </h3>
 <div class="container-fluid">
-    <form>
-        <input type="text" placeholder="Wybierz markę pojazdu..." name="CarName">
-        <input type="text" placeholder="Wybierz mode pojazdu..." name="CarModel">
-        <input type="text" placeholder="Wybierz rok pojazdu..." name="CarYear">
-        <input type="text" placeholder="Wybierz wersję pojazdu..." name="CarVersion">
+    <form method="post" class="vehicle">
+        <label>Wybór marki pojazdu</label>
+        <select name="brands" id="brands">
+            <#list brandList as brand>
+                <option value="${brand.getLink()}">${brand.getName()}</option>
+            </#list>
+        </select>
+
+        <label>Wybór modelu pojazdu</label>
+        <select name="models" id="models"></select>
+
+        <label>Wybór wersji pojazdu</label>
+        <select name="version" id="version"></select>
+
+        <label>Wybór kategorii</label>
+        <select name="category" id="category"></select>
     </form>
+
 </div>
 
 </main>
