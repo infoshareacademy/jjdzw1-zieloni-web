@@ -1,9 +1,12 @@
 package com.isa.zuswebapp.servlets;
 
+import com.isa.zuswebapp.HibernateUtil;
 import com.isa.zuswebapp.freemarker.TemplateSupplier;
+import com.isa.zuswebapp.model.Order;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
+import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,17 +39,23 @@ public class ServiceServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
+
         response.setContentType("text/html;charset=UTF-8");
         Map<String, Object> data = new HashMap();
         PrintWriter printWriter = response.getWriter();
 
-        data.put("content", "contents/service-panel");
+
+        EntityManager em = HibernateUtil.getSessionFactory().createEntityManager();
+        printWriter.print(em.find(Order.class, 1));
+
+
+      /*  data.put("content", "contents/service-panel");
 
         try{
             template.process(data, printWriter);
         }catch (TemplateException ex){
             logger.log(Level.SEVERE, ex.getMessage(), ex);
-        }
+        }*/
 
     }
 
