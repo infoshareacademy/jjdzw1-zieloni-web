@@ -47,3 +47,19 @@ CREATE TABLE orders
   updateDate DATETIME,
   updateUser VARCHAR(100)
 );
+
+insert  into users
+  (login, password, imie, nazwisko, email, idUserType, idStatus)
+values
+  ('mbielecki', 'test', 'Marcin', 'Bielecki', 'bieleckim80@gmail.com', 1, 1)
+;
+
+select * from users;
+
+insert into orders
+  (idUser, parts, address, idStatus)
+values
+  (1, 'Fiat Bravo 2008 1.4 t-jet filtr oleju benzyna 0022331', 'ul. Prosta 3, 00-003 Warszawa', 1)
+;
+
+select * from orders;
