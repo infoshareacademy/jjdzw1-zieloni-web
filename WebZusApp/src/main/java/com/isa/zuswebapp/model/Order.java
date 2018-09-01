@@ -27,4 +27,13 @@ public class Order {
 
     @Column(nullable = false)
     private int idStatusu;
+
+    public Order(){}
+
+    public Order(int idUser, String parts, String address, int idStatusu) {
+        this.idUser = idUser;
+        this.parts = parts;
+        this.address = address;
+        this.idStatusu = idStatusu;
+    }
 }

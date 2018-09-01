@@ -44,9 +44,13 @@ public class ServiceServlet extends HttpServlet {
         Map<String, Object> data = new HashMap();
         PrintWriter printWriter = response.getWriter();
 
+        printWriter.print("test");
+
+/*
 
         EntityManager em = HibernateUtil.getSessionFactory().createEntityManager();
         printWriter.print(em.find(Order.class, 1));
+*/
 
 
       /*  data.put("content", "contents/service-panel");
