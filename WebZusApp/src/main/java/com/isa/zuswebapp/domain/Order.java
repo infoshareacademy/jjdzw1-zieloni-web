@@ -1,4 +1,4 @@
-package com.isa.zuswebapp.model;
+package com.isa.zuswebapp.domain;
 
 
 import javax.persistence.Column;

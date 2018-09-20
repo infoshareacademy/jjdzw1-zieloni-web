@@ -1,12 +1,14 @@
 package com.isa.zuswebapp.servlets;
 
-import com.isa.zuswebapp.HibernateUtil;
 import com.isa.zuswebapp.freemarker.TemplateSupplier;
-import com.isa.zuswebapp.model.Order;
+import com.isa.zuswebapp.model.OrderDao;
+import com.isa.zuswebapp.model.OrderDaoBean;
 import freemarker.template.Template;
-import freemarker.template.TemplateException;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +27,13 @@ public class ServiceServlet extends HttpServlet {
     Logger logger = Logger.getLogger(getClass().getName());
 
     Template template;
+
+
+    @Inject
+    OrderDaoBean orderDAO;
+
+    private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("primary");
+
 
     public void init(){
 
@@ -46,11 +55,10 @@ public class ServiceServlet extends HttpServlet {
 
         printWriter.print("test");
 
-/*
 
-        EntityManager em = HibernateUtil.getSessionFactory().createEntityManager();
-        printWriter.print(em.find(Order.class, 1));
-*/
+
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        printWriter.print(entityManager.find(OrderDaoBean.class, 1));
 
 
       /*  data.put("content", "contents/service-panel");
