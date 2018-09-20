@@ -36,4 +36,52 @@ public class Order {
         this.address = address;
         this.idStatusu = idStatusu;
     }
+
+    public int getId() {
+        return id;
+    }
+
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+
+    public String getParts() {
+        return parts;
+    }
+
+    public void setParts(String parts) {
+        this.parts = parts;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getIdStatusu() {
+        return idStatusu;
+    }
+
+    public void setIdStatusu(int idStatusu) {
+        this.idStatusu = idStatusu;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", idUser=" + idUser +
+                ", parts='" + parts + '\'' +
+                ", address='" + address + '\'' +
+                ", idStatusu=" + idStatusu +
+                '}';
+    }
 }
